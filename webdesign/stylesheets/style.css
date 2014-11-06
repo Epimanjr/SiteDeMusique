@@ -1,0 +1,206 @@
+/* Polices de caractères */
+/* Initialisation Oswald */
+@font-face { font-family: "Oswald"; src: url("../fonts/Oswald/Oswald-Light.ttf"); font-weight: 300; }
+@font-face { font-family: "Oswald"; src: url("../fonts/Oswald/Oswald-Regular.ttf"); font-weight: 400; }
+@font-face { font-family: "Oswald"; src: url("../fonts/Oswald/Oswald-Bold.ttf"); font-weight: 700; }
+
+/* Initialisation Open Sans */
+@font-face { font-family: "Open Sans"; src: url("../fonts/OpenSans/OpenSans-Light.ttf"); font-weight: 300; }
+@font-face { font-family: "Open Sans"; src: url("../fonts/OpenSans/OpenSans-LightItalic.ttf"); font-weight: 300; font-style: italic; }
+@font-face { font-family: "Open Sans"; src: url("../fonts/OpenSans/OpenSans-Regular.ttf"); font-weight: 400; }
+@font-face { font-family: "Open Sans"; src: url("../fonts/OpenSans/OpenSans-Italic.ttf"); font-weight: 400; font-style: italic; }
+@font-face { font-family: "Open Sans"; src: url("../fonts/OpenSans/OpenSans-Semibold.ttf"); font-weight: 600; }
+@font-face { font-family: "Open Sans"; src: url("../fonts/OpenSans/OpenSans-SemiboldItalic.ttf"); font-weight: 600; font-style: italic; }
+@font-face { font-family: "Open Sans"; src: url("../fonts/OpenSans/OpenSans-Bold.ttf"); font-weight: 700; }
+@font-face { font-family: "Open Sans"; src: url("../fonts/OpenSans/OpenSans-BoldItalic.ttf"); font-weight: 700; font-style: italic; }
+@font-face { font-family: "Open Sans"; src: url("../fonts/OpenSans/OpenSans-ExtraBold.ttf"); font-weight: 800; }
+@font-face { font-family: "Open Sans"; src: url("../fonts/OpenSans/OpenSans-ExtraBoldItalic.ttf"); font-weight: 800; font-style: italic; }
+
+/* Mise en forme générale */
+/* Annulation du débordement lié au marges intérieures et aux bordures */
+*, *:before, *:after{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body{
+	position: relative;
+	margin: 0 auto;
+	padding: 0;
+	background-color: lightsteelblue;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.wrapper{
+	position: relative;
+	margin: 0 auto;
+	padding: 0;
+	max-width: 1200px;
+	min-width: 300px;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+a{ text-decoration: none; color: black; }
+
+/* Mise en forme de l'en-tête */
+header{
+	background-color: black;
+	padding: 1em 0;
+}
+
+header div:before,
+header div:after{ content: ""; display: table; }
+header div:after{ clear: both; }
+
+/* Logo */
+section.logo{
+	float: left;
+	height: 100px;
+}
+section.logo img{ height: 100%; }
+
+/* Menu */
+section.menu{
+	float: right;
+	height: 100px;
+}
+
+nav ul{
+	list-style-type: none;
+}
+
+nav ul li{
+	display: inline-block;
+	height: 100%;
+	padding-right: 1em;
+}
+
+nav ul li a{
+	font-family: 'Oswald', sans-serif;
+	font-weight: 400;
+	font-size: 1em;
+	text-transform: uppercase;
+	color: white;
+	line-height: 4em;
+	transition-duration: 0.2s;
+	transition-property: color;
+	transition-timing-function: ease-in;
+}
+
+nav ul li a:hover{
+	color: steelblue;
+}
+
+/* Mise en forme du contenu de page */
+article{
+	padding-bottom: 1em;
+}
+
+/* Titres */
+h1{
+	font-family: 'Oswald', sans-serif;
+	font-weight: 300;
+	font-size: 2.3em;
+	line-height: 1.2;
+	color: black;
+	border-bottom: 1px solid steelblue;
+}
+
+h2{
+	font-weight: 400;
+	font-size: 1.3em;
+	line-height: 0.75;
+}
+
+h3{
+	font-weight: 300;
+	font-size: 1.1em;
+	line-height: 0.75;
+}
+
+/* Barre de recherche */
+section.search{
+	padding-bottom: 1em;
+}
+
+form.search-bar input[type=text]{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 0.95em;
+	padding: 0.5em 1em;
+	background-color: white;
+	border: 0px solid transparent;
+}
+form.search-bar input[type=button]{
+	position: relative;
+	cursor: pointer;
+	padding: 0.5em 1em;
+	left: -0.6em;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 0.95em;
+	background-color: steelblue;
+	color: white;
+	border: 2px solid steelblue;
+	transition-duration: 0.2s;
+	transition-property: background-color;
+	transition-timing-function: ease-in;
+}
+form.search-bar input[type=button]:hover{
+	background-color: white;
+	color: steelblue;
+}
+
+/* Résultat */
+
+article.song:before,
+article.song:after{ content: ""; display: table; }
+article.song:after{ clear: both; }
+
+article.song{
+	width: 100%;
+	padding: 0.5em 1em;
+	margin-bottom: 0.5em;
+	background-color: steelblue;
+}
+
+section.song-title{
+	float: left;
+}
+
+section.song-button{
+	float: right;
+}
+
+a.button{
+	padding: 0.5em 1em;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 0.95em;
+	line-height: 3em;
+	background-color: orangered;
+	color: white;
+	border: 2px solid orangered;
+	transition-duration: 0.2s;
+	transition-property: background-color;
+	transition-timing-function: ease-in;
+}
+
+a.button:hover{
+	background-color: orange;
+	color: black;
+}
+
+
+/* Mise en forme du pied de page */
+
+footer{
+	background-color: black;
+	padding: 1em 0;
+}
+
+footer p{
+	color: white;
+	font-size: 0.95em;
+}
