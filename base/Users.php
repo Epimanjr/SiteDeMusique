@@ -1,5 +1,7 @@
 <?php
 
+include 'Base.php';
+
 class Users {
 
     /**
@@ -26,8 +28,17 @@ class Users {
      */
     private $email;
 
-    public function __construct() {
-        //Constructeur vide
+    /**
+     * Construit un utilisateur.
+     * 
+     * @param type $name
+     * @param type $pass
+     * @param type $mail
+     */
+    public function __construct($name, $pass, $mail) {
+        $this->username = $name;
+        $this->password = $pass;
+        $this->email = $mail;
     }
 
     /**
@@ -66,15 +77,15 @@ class Users {
 
         /* Préparation de la requête */
         $query = $c->prepare("INSERT INTO users (user_id, username, password, email) VALUES ( :user_id, :username, :password, :email )");
-        $query->bindParam(':user_id', $this->user_id, PDO::PARAM_STR);
+        $query->bindParam(':user_id', $this->user_id, PDO::PARAM_INT);
         $query->bindParam(':username', $this->username, PDO::PARAM_STR);
-        $query->bindParam(':password', $this->password, PDO::PARAM_INT);
-        $query->bindParam(':email', $this->email, PDO::PARAM_LOB);
+        $query->bindParam(':password', $this->password, PDO::PARAM_STR);
+        $query->bindParam(':email', $this->email, PDO::PARAM_STR);
 
         /* Exécution de la requête */
         $query->execute();
 
-        $this->id = $c->lastInsertId();
+        $this->user_id = $c->lastInsertId();
     }
 
     /**
@@ -90,16 +101,17 @@ class Users {
             throw new Exception(__CLASS__ . ": Primary Key undefined : cannot update");
         }
 
+        /* Connexion à la base */
         $c = Base::getConnection();
+
+        /* Préparation de la requête */
         $query = $c->prepare("update users set username= ?, password= ?, email= ? where user_id=?");
         $query->bindParam(1, $this->username, PDO::PARAM_STR);
         $query->bindParam(2, $this->password, PDO::PARAM_STR);
         $query->bindParam(3, $this->email, PDO::PARAM_STR);
         $query->bindParam(4, $this->user_id, PDO::PARAM_INT);
 
-        /*
-         * exécution de la requête
-         */
+        /* Exécution de la requête */
         return $query->execute();
     }
 
@@ -141,7 +153,7 @@ class Users {
         $query->bindParam(1, $id, PDO::PARAM_INT);
 
         /* Exécution de la requête */
-        $dbres = $query->execute();
+        $query->execute();
 
         /* Récupération du résultat */
         $d = $query->fetch(PDO::FETCH_BOTH);
@@ -189,4 +201,7 @@ class Users {
         return $res;
     }
 
+    function afficher() {
+        echo "<p></p>";
+    }
 }
