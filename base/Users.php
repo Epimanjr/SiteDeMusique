@@ -30,15 +30,9 @@ class Users {
 
     /**
      * Construit un utilisateur.
-     * 
-     * @param type $name
-     * @param type $pass
-     * @param type $mail
      */
-    public function __construct($name, $pass, $mail) {
-        $this->username = $name;
-        $this->password = $pass;
-        $this->email = $mail;
+    public function __construct() {
+
     }
 
     /**
@@ -97,7 +91,7 @@ class Users {
     public function update() {
 
         /* On test si l'ID est défini, sinon on ne peut pas faire la mise à jour */
-        if (!isset($this->id)) {
+        if (!isset($this->user_id)) {
             throw new Exception(__CLASS__ . ": Primary Key undefined : cannot update");
         }
 
@@ -123,7 +117,7 @@ class Users {
      */
     public function delete() {
         /* On vérifie si l'id est renseigné, sinon on ne peut pas supprimer */
-        if (!isset($this->id)) {
+        if (!isset($this->user_id)) {
             throw new Exception(__CLASS__ . ": Primary Key undefined : cannot delete");
         }
 
@@ -131,8 +125,8 @@ class Users {
         $c = Base::getConnection();
 
         /* Préparation de la requête */
-        $query = $c->prepare("DELETE FROM billets where id=?");
-        $query->bindParam(1, $this->id, PDO::PARAM_INT);
+        $query = $c->prepare("DELETE FROM users where user_id=?");
+        $query->bindParam(1, $this->user_id, PDO::PARAM_INT);
 
         /* Exécution de la requête */
         return $query->execute();
@@ -184,13 +178,12 @@ class Users {
         $query = $c->prepare("select * from users");
 
         /* Exécution de la requête */
-        $dbres = $query->execute();
+        $query->execute();
 
         /* Parcours du résultat */
         while ($d = $query->fetch(PDO::FETCH_BOTH)) {
             $user = new Users();
 
-            $user->id = $d['id'];
             $user->user_id = $d['user_id'];
             $user->username = $d['username'];
             $user->password = $d['password'];
@@ -201,7 +194,10 @@ class Users {
         return $res;
     }
 
+    /**
+     * Affichage d'un utilisateur.
+     */
     function afficher() {
-        echo "<p></p>";
+        echo "Utilisateur " . $this->user_id . " : " . $this->username . ", email = " . $this->email . "<br/>\n";
     }
 }
