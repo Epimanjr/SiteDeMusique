@@ -25,8 +25,8 @@
 					<h3>Album - année</h3>
 				</section>
 				<section class="commands">
-					<div class="button"><p><a href="" class="listen">Écouter</a><p></div>
-					<div class="button"><p><a href="" class="addToPlaylist">Ajouter à une playlist</a><p></div>
+					<div class="button"><p><a href="" class="listen" title="Écouter"><span class="icon-play"></span></a><p></div>
+					<div class="button"><p><a href="" class="addToPlaylist" title="Ajouter à une playlist"><span class="icon-save"></span></a><p></div>
 				</section>
 			</article>
 			<article class="song">
@@ -35,8 +35,8 @@
 					<h3>Album - année</h3>
 				</section>
 				<section class="commands">
-					<div class="button"><p><a href="" class="listen">Écouter</a><p></div>
-					<div class="button"><p><a href="" class="addToPlaylist">Ajouter à une playlist</a><p></div>
+					<div class="button"><p><a href="" class="listen" title="Écouter"><span class="icon-play"></span></a><p></div>
+					<div class="button"><p><a href="" class="addToPlaylist" title="Ajouter à une playlist"><span class="icon-save"></span></a><p></div>
 				</section>
 			</article>
 			<article class="song">
@@ -45,8 +45,8 @@
 					<h3>Album - année</h3>
 				</section>
 				<section class="commands">
-					<div class="button"><p><a href="" class="listen">Écouter</a><p></div>
-					<div class="button"><p><a href="" class="addToPlaylist">Ajouter à une playlist</a><p></div>
+					<div class="button"><p><a href="" class="listen" title="Écouter"><span class="icon-play"></span></a><p></div>
+					<div class="button"><p><a href="" class="addToPlaylist" title="Ajouter à une playlist"><span class="icon-save"></span></a><p></div>
 				</section>
 			</article>
 		</section>

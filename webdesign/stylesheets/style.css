@@ -1,20 +1,66 @@
 /* Polices de caractères */
 /* Initialisation Oswald */
-@font-face { font-family: "Oswald"; src: url("../fonts/Oswald/Oswald-Light.ttf"); font-weight: 300; }
-@font-face { font-family: "Oswald"; src: url("../fonts/Oswald/Oswald-Regular.ttf"); font-weight: 400; }
-@font-face { font-family: "Oswald"; src: url("../fonts/Oswald/Oswald-Bold.ttf"); font-weight: 700; }
+@font-face{ font-family: "Oswald"; src: url("../fonts/Oswald/Oswald-Light.ttf"); font-weight: 300; }
+@font-face{ font-family: "Oswald"; src: url("../fonts/Oswald/Oswald-Regular.ttf"); font-weight: 400; }
+@font-face{ font-family: "Oswald"; src: url("../fonts/Oswald/Oswald-Bold.ttf"); font-weight: 700; }
 
 /* Initialisation Open Sans */
-@font-face { font-family: "Open Sans"; src: url("../fonts/OpenSans/OpenSans-Light.ttf"); font-weight: 300; }
-@font-face { font-family: "Open Sans"; src: url("../fonts/OpenSans/OpenSans-LightItalic.ttf"); font-weight: 300; font-style: italic; }
-@font-face { font-family: "Open Sans"; src: url("../fonts/OpenSans/OpenSans-Regular.ttf"); font-weight: 400; }
-@font-face { font-family: "Open Sans"; src: url("../fonts/OpenSans/OpenSans-Italic.ttf"); font-weight: 400; font-style: italic; }
-@font-face { font-family: "Open Sans"; src: url("../fonts/OpenSans/OpenSans-Semibold.ttf"); font-weight: 600; }
-@font-face { font-family: "Open Sans"; src: url("../fonts/OpenSans/OpenSans-SemiboldItalic.ttf"); font-weight: 600; font-style: italic; }
-@font-face { font-family: "Open Sans"; src: url("../fonts/OpenSans/OpenSans-Bold.ttf"); font-weight: 700; }
-@font-face { font-family: "Open Sans"; src: url("../fonts/OpenSans/OpenSans-BoldItalic.ttf"); font-weight: 700; font-style: italic; }
-@font-face { font-family: "Open Sans"; src: url("../fonts/OpenSans/OpenSans-ExtraBold.ttf"); font-weight: 800; }
-@font-face { font-family: "Open Sans"; src: url("../fonts/OpenSans/OpenSans-ExtraBoldItalic.ttf"); font-weight: 800; font-style: italic; }
+@font-face{ font-family: "Open Sans"; src: url("../fonts/OpenSans/OpenSans-Light.ttf"); font-weight: 300; }
+@font-face{ font-family: "Open Sans"; src: url("../fonts/OpenSans/OpenSans-LightItalic.ttf"); font-weight: 300; font-style: italic; }
+@font-face{ font-family: "Open Sans"; src: url("../fonts/OpenSans/OpenSans-Regular.ttf"); font-weight: 400; }
+@font-face{ font-family: "Open Sans"; src: url("../fonts/OpenSans/OpenSans-Italic.ttf"); font-weight: 400; font-style: italic; }
+@font-face{ font-family: "Open Sans"; src: url("../fonts/OpenSans/OpenSans-Semibold.ttf"); font-weight: 600; }
+@font-face{ font-family: "Open Sans"; src: url("../fonts/OpenSans/OpenSans-SemiboldItalic.ttf"); font-weight: 600; font-style: italic; }
+@font-face{ font-family: "Open Sans"; src: url("../fonts/OpenSans/OpenSans-Bold.ttf"); font-weight: 700; }
+@font-face{ font-family: "Open Sans"; src: url("../fonts/OpenSans/OpenSans-BoldItalic.ttf"); font-weight: 700; font-style: italic; }
+@font-face{ font-family: "Open Sans"; src: url("../fonts/OpenSans/OpenSans-ExtraBold.ttf"); font-weight: 800; }
+@font-face{ font-family: "Open Sans"; src: url("../fonts/OpenSans/OpenSans-ExtraBoldItalic.ttf"); font-weight: 800; font-style: italic; }
+
+/* Initialisation Flaticon */
+
+@font-face{
+	font-family: "Flaticon";
+		src: url("../fonts/Flaticon/flaticon.eot");
+		src: url("../fonts/Flaticon/flaticon.eot#iefix") format("embedded-opentype"),
+		url("../fonts/Flaticon/flaticon.woff") format("woff"),
+		url("../fonts/Flaticon/flaticon.ttf") format("truetype"),
+		url("../fonts/Flaticon/flaticon.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+[class^="icon-"]:before,
+[class*=" icon-"]:before,
+[class^="icon-"]:after,
+[class*=" icon-"]:after{
+	font-family: "Flaticon";
+	font-size: 20px;
+	font-style: normal;
+}
+.icon-about:before{ content: "\e000"; }
+.icon-plus:before{ content: "\e001"; }
+.icon-check:before{ content: "\e002"; }
+.icon-delete:before{ content: "\e003"; }
+.icon-createAccount:before{ content: "\e004"; }
+.icon-deleteAccount:before{ content: "\e005"; }
+.icon-open:before{ content: "\e006"; }
+.icon-down:before{ content: "\e007"; }
+.icon-up:before{ content: "\e008"; }
+.icon-email:before{ content: "\e009"; }
+.icon-minus:before{ content: "\e00a"; }
+.icon-home:before{ content: "\e00b"; }
+.icon-info:before{ content: "\e00c"; }
+.icon-key:before{ content: "\e00d"; }
+.icon-search:before{ content: "\e00e"; }
+.icon-pause:before{ content: "\e00f"; }
+.icon-play:before{ content: "\e010"; }
+.icon-online:before{ content: "\e011"; }
+.icon-save:before{ content: "\e012"; }
+.icon-playlist:before{ content: "\e013"; }
+.icon-setting:before{ content: "\e014"; }
+.icon-stop:before{ content: "\e015"; }
+.icon-lock:before{ content: "\e016"; }
+.icon-close:before{ content: "\e017"; }
+.icon-user:before{ content: "\e018"; }
 
 /* Mise en forme générale */
 /* Annulation du débordement lié au marges intérieures et aux bordures */
@@ -30,7 +76,7 @@ body{
 	position: relative;
 	display: table;
 	width: 100%;
-	background-color: lightsteelblue;
+	background-color: whitesmoke;
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
 }
@@ -39,7 +85,7 @@ body{
 	position: relative;
 	margin: 0 auto;
 	padding: 0 1em;
-	max-width: 1200px;
+	max-width: 1000px;
 	min-width: 300px;
 }
 
@@ -50,34 +96,24 @@ sub{ vertical-align: sub; }
 sup{ vertical-align: super; }
 a{ text-decoration: none; color: black; }
 label{ font-family: 'Open Sans', sans-serif; font-size: 0.95em; }
-input[type=text]{
+input{
 	padding: 0.5em 1em;
+	border: none;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 0.95em;
-	border: none;
-}
-input[type=password]{
-	padding: 0.5em 1em;
-	font-family: 'Open Sans', sans-serif;
-	font-size: 0.95em;
-	border: none;
 }
 input[type=submit]{
 	cursor: pointer;
-	padding: 0.5em 1em;
-	border: none;
 	background: none;
-	font-family: 'Open Sans', sans-serif;
-	font-size: 0.95em;
-	-webkit-transition: background-color 0.2s ease-in-out;
-	-moz-transition: background-color 0.2s ease-in-out;
-	-ms-transition: background-color 0.2s ease-in-out;
-	-o-transition: background-color 0.2s ease-in-out;
-	transition: background-color 0.2s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
 }
 
 /* Mise en forme de l'en-tête */
-header{ background-color: black; }
+header{ background-color: #2055ac; }
 header div:before,
 header div:after{ content: ""; display: table; }
 header div:after{ clear: both; }
@@ -87,13 +123,13 @@ section.logo{
 	float: left;
 	height: 100%;
 	padding: 0.35em;
-	-webkit-transition: background-color 0.2s ease-in-out;
-	-moz-transition: background-color 0.2s ease-in-out;
-	-ms-transition: background-color 0.2s ease-in-out;
-	-o-transition: background-color 0.2s ease-in-out;
-	transition: background-color 0.2s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
 }
-section.logo:hover{ background-color: steelblue; }
+section.logo:hover{ background-color: #5996ff; }
 section.logo img{ height: 100px; padding: 0.5em; vertical-align: middle; }
 
 /* Menu */
@@ -109,13 +145,13 @@ nav ul li a{
 	line-height: 5em;
 	text-transform: uppercase;
 	color: white;
-	-webkit-transition: background-color 0.2s ease-in-out;
-	-moz-transition: background-color 0.2s ease-in-out;
-	-ms-transition: background-color 0.2s ease-in-out;
-	-o-transition: background-color 0.2s ease-in-out;
-	transition: background-color 0.2s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
 }
-nav ul li a:hover{ background-color: steelblue; }
+nav ul li a:hover{ background-color: #5996ff; color: black; }
 
 
 /* Mise en forme du contenu de page */
@@ -129,22 +165,28 @@ h1{
 	font-size: 2.3em;
 	line-height: 1.2;
 	color: black;
-	border-bottom: 1px solid steelblue;
+	border-bottom: 1px solid darkgray;
 }
 h2{ font-weight: 400; font-size: 1.3em; line-height: 0.75; }
 h3{ font-weight: 300; font-size: 1.1em; line-height: 0.75; }
 
 /* Barre de recherche */
-form.searchBar input[type=text]{ background-color: white; }
-form.searchBar input[type=submit]{
+form.searchBar input[type=text]{ border: 1px solid darkgray ; background-color: white; }
+form.searchBar button[type=submit]{
 	position: relative;
 	cursor: pointer;
 	left: -0.6em;
-	background-color: steelblue;
+	padding: 0.5em 1em;
+	background-color: #2055ac;
 	color: white;
-	border: 2px solid steelblue;
+	border: 2px solid #2055ac;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
 }
-form.searchBar input[type=submit]:hover{ background-color: powderblue; color: black; }
+form.searchBar button[type=submit]:hover{ background-color: #5996ff; color: black; }
 
 /* Musique */
 article.song:before,
@@ -154,25 +196,35 @@ article.song{
 	width: 100%;
 	padding: 0.5em 1em;
 	margin-bottom: 0.5em;
-	background-color: steelblue;
-	-webkit-transition: background-color 0.3s ease-in-out;
-	-moz-transition: background-color 0.3s ease-in-out;
-	-ms-transition: background-color 0.3s ease-in-out;
-	-o-transition: background-color 0.3s ease-in-out;
-	transition: background-color 0.3s ease-in-out;
+	background-color: gainsboro;
+	border: 2px solid transparent;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
 }
-article.song:hover{ background-color: white; }
+article.song:hover{ border: 2px solid #2055ac; background: none; }
 
 /* Playlist */
 article.playlist{
 	width: 100%;
-	padding: 0.5em 1em;
+	padding: 0.3em 1em;
 	margin-bottom: 0.5em;
-	background-color: powderblue;
+	border: 2px solid darkgray;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
 }
+article.playlist:hover{ border-color: #2055ac; }
+article.playlist h2{ line-height: 1em; }
 article.playlist header:before,
 article.playlist header:after{ content: ""; display: table; }
 article.playlist header:after{ clear: both; }
+article.playlist div.button{ line-height: 1.5em; }
+article.playlist article.song div.button{ line-height: 3em; }
 
 /* Commun Musique & Playlist */
 section.infos{ float: left; }
@@ -191,11 +243,11 @@ div.button a{
 	border-style: solid;
 	border-width: 2px;
 	color: white;
-	-webkit-transition: background-color 0.2s ease-in-out;
-	-moz-transition: background-color 0.2s ease-in-out;
-	-ms-transition: background-color 0.2s ease-in-out;
-	-o-transition: background-color 0.2s ease-in-out;
-	transition: background-color 0.2s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
 }
 
 /* Lire la bio de l'artiste */
@@ -211,26 +263,25 @@ div.button a.addToPlaylist{ border-color: orangered; background-color: orangered
 div.button a.addToPlaylist:hover{ background-color: orange; color: black; }
 
 /* Créer une nouvelle playlist */
-div.button a.newPlaylist{ border-color: steelblue; background-color: steelblue; margin-right: 1em; }
-div.button a.newPlaylist:hover{ background-color: lightsteelblue; color: black; }
+div.button a.newPlaylist{ border-color: #2055ac; background-color: #2055ac; margin-right: 1em; }
+div.button a.newPlaylist:hover{ background-color: #5996ff; color: black; }
 
 /* Ouvrir/Fermer (la playlist) */
 div.button a.displayPlaylist,
-div.button a.hidePlaylist{ border-color: darkgoldenrod; background-color: darkgoldenrod; }
+div.button a.hidePlaylist{ border-color: #2055ac; background-color: #2055ac; }
 
 div.button a.displayPlaylist:hover,
-div.button a.hidePlaylist:hover{ background-color: gold; color: black; }
+div.button a.hidePlaylist:hover{ background-color: #5996ff; color: black; }
 
 /* Supprimer (la playlist) */
 div.button a.deletePlaylist{ border-color: firebrick; background-color: firebrick; }
 div.button a.deletePlaylist:hover{ background-color: tomato; color: black; }
 
 /* Monter ou descendre une musique dans la playlist */
-div.button a.up{ border-color: steelblue; background-color: steelblue; }
-div.button a.up:hover{ background-color: lightsteelblue; color: black; }
-
-div.button a.down{ border-color: steelblue; background-color: steelblue; }
-div.button a.down:hover{ background-color: lightsteelblue; color: black; }
+div.button a.up,
+div.button a.down{ border-color: darkgray; background-color: darkgray; }
+div.button a.up:hover,
+div.button a.down:hover{ background-color: lightgrey; color: black; }
 
 /* Gestion de l'ouverture et de la fermeture d'une playlist ==> Javascript à écrire ! (***) */
 section#playlistContent{ display: none; }
@@ -256,7 +307,7 @@ section#playlistContent+*:target{ display: block; }
 	-moz-opacity: 0.70; /* Old Mozillas */
 	-khtml-opacity: 0.70; /* Old Safaris/Google Chromes */
 	opacity: 0.70;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; /* Old IEs (6-8) */
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=70); /* Old IEs (6-8) */
 	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);
 	filter:alpha(opacity=70);
 }
@@ -271,10 +322,9 @@ section#playlistContent+*:target{ display: block; }
 	width: 50%;
 	min-width: 320px;
 	min-height: 240px;
-	background-color: lightsteelblue;
+	background-color: #5996ff;
 	border: 2px solid black;
 }
-
 #modalRegistration h1,
 #modalLogin h1,
 #modalCreatePlaylist h1{
@@ -283,8 +333,27 @@ section#playlistContent+*:target{ display: block; }
 	font-size: 2em;
 	line-height: 1.2;
 	color: black;
-	border-bottom: 1px solid steelblue;
+	border-bottom: 1px solid #2055ac;
 }
+
+#modalRegistration label,
+#modalLogin label,
+#modalCreatePlaylist label{ margin-right: 1em;}
+
+#modalRegistration [class^="icon-"]:before,
+#modalRegistration [class*=" icon-"]:before,
+#modalRegistration [class^="icon-"]:after,
+#modalRegistration [class*=" icon-"]:after{margin-right: 0.5em;}
+
+#modalLogin [class^="icon-"]:before,
+#modalLogin [class*=" icon-"]:before,
+#modalLogin [class^="icon-"]:after,
+#modalLogin [class*=" icon-"]:after{margin-right: 0.5em;}
+
+#modalCreatePlaylist [class^="icon-"]:before,
+#modalCreatePlaylist [class*=" icon-"]:before,
+#modalCreatePlaylist [class^="icon-"]:after,
+#modalCreatePlaylist [class*=" icon-"]:after{margin-right: 0.5em;}
 
 #modalRegistration input[type=text],
 #modalRegistration input[type=password],
@@ -297,9 +366,9 @@ section#playlistContent+*:target{ display: block; }
 #modalLogin input[type=submit],
 #modalCreatePlaylist input[type=submit]{
 	margin-top: 2em;
-	background-color: steelblue;
+	background-color: #2055ac;
 	color: white;
-	border: 2px solid steelblue;
+	border: 2px solid #2055ac;
 }
 #modalRegistration input[type=submit]:hover,
 #modalLogin input[type=submit]:hover,
@@ -317,11 +386,14 @@ footer{
 	position: relative;
 	margin: 0;
 	padding: 0;
-	background-color: black;
+	background-color: #2055ac;
 }
 footer p{
 	padding: 1em;
 	font-size: 1em;
 	color: white;
 	text-align: center;
+}
+footer a{
+	color: orange;
 }

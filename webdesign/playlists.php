@@ -13,7 +13,7 @@
 	<article class="userPlaylists">
 		<header class="wrapper">
 			<h1>Vos playlists</h1>
-			<div class="button"><p><a href="#" id="loadCreatePlaylist" class="newPlaylist">+</a> Créer une nouvelle playlist</p></div>
+			<div class="button"><p><a href="#" id="loadCreatePlaylist" class="newPlaylist"><span class="icon-plus"></span></a> Créer une nouvelle playlist</p></div>
 		</header>
 		<section class="wrapper">
 			<article class="playlist">
@@ -23,9 +23,9 @@
 					</section>
 					<section class="commands">
 						<!-- À créer en javascript ou php : un "switch" de Ouvrir/Fermer. -->
-						<div class="button"><p><a href="#playlistContent" class="displayPlaylist">Ouvrir</a></p></div>
-						<div class="button"><p><a href="" class="hidePlaylist">Fermer</a></p></div>
-						<div class="button"><p><a href="" class="deletePlaylist">x</a></p></div>
+						<div class="button"><p><a href="#playlistContent" class="displayPlaylist" title="Ouvrir"><span class="icon-open"></span></a></p></div>
+						<div class="button"><p><a href="" class="hidePlaylist" title="Fermer"><span class="icon-close"></span></a></p></div>
+						<div class="button"><p><a href="" class="deletePlaylist" title="Supprimer"><span class="icon-delete"></span></a></p></div>
 					</section>
 				</header>
 				<section id="playlistContent">
@@ -35,10 +35,10 @@
 							<h3>Chanteur/groupe - année</h3>
 						</section>
 						<section class="commands">
-							<div class="button"><p><a href="" class="readBio">Lire la bio de l'artiste</a><p></div>
-							<div class="button"><p><a href="" class="listen">Écouter</a><p></div>
-							<div class="button"><p><a href="" class="up">↑</a></p></div>
-							<div class="button"><p><a href="" class="down">↓</a></p></div>
+							<div class="button"><p><a href="artiste.php" class="readBio" title="En savoir plus sur l'artiste"><span class="icon-info"></span></a><p></div>
+							<div class="button"><p><a href="" class="listen" title="Écouter"><span class="icon-play"></span></a><p></div>
+							<div class="button"><p><a href="" class="up" title="Monter"><span class="icon-up"></span></a></p></div>
+							<div class="button"><p><a href="" class="down" title="Descendre"><span class="icon-down"></span></a></p></div>
 						</section>
 					</article>
 					<article class="song">
@@ -47,10 +47,10 @@
 							<h3>Chanteur/groupe - année</h3>
 						</section>
 						<section class="commands">
-							<div class="button"><p><a href="" class="readBio">Lire la bio de l'artiste</a><p></div>
-							<div class="button"><p><a href="" class="listen">Écouter</a><p></div>
-							<div class="button"><p><a href="" class="up">↑</a></p></div>
-							<div class="button"><p><a href="" class="down">↓</a></p></div>
+							<div class="button"><p><a href="artiste.php" class="readBio" title="En savoir plus sur l'artiste"><span class="icon-info"></span></a><p></div>
+							<div class="button"><p><a href="" class="listen" title="Écouter"><span class="icon-play"></span></a><p></div>
+							<div class="button"><p><a href="" class="up" title="Monter"><span class="icon-up"></span></a></p></div>
+							<div class="button"><p><a href="" class="down" title="Descendre"><span class="icon-down"></span></a></p></div>
 						</section>
 					</article>
 				</section>
@@ -62,9 +62,9 @@
 					</section>
 					<section class="commands">
 						<!-- À créer en javascript ou php : un "switch" de Ouvrir/Fermer. -->
-						<div class="button"><p><a href="#playlistContent2" class="displayPlaylist">Ouvrir</a></p></div>
-						<div class="button"><p><a href="" class="hidePlaylist">Fermer</a></p></div>
-						<div class="button"><p><a href="" class="deletePlaylist">x</a></p></div>
+						<div class="button"><p><a href="#playlistContent2" class="displayPlaylist" title="Ouvrir"><span class="icon-open"></span></a></p></div>
+						<div class="button"><p><a href="" class="hidePlaylist" title="Fermer"><span class="icon-close"></span></a></p></div>
+						<div class="button"><p><a href="" class="deletePlaylist" title="Supprimer"><span class="icon-delete"></span></a></p></div>
 					</section>
 				</header>
 				<section id="playlistContent2">
@@ -74,10 +74,10 @@
 							<h3>Chanteur/groupe - année</h3>
 						</section>
 						<section class="commands">
-							<div class="button"><p><a href="" class="readBio">Lire la bio de l'artiste</a><p></div>
-							<div class="button"><p><a href="" class="listen">Écouter</a><p></div>
-							<div class="button"><p><a href="" class="up">↑</a></p></div>
-							<div class="button"><p><a href="" class="down">↓</a></p></div>
+							<div class="button"><p><a href="artiste.php" class="readBio" title="En savoir plus sur l'artiste"><span class="icon-info"></span></a><p></div>
+							<div class="button"><p><a href="" class="listen" title="Écouter"><span class="icon-play"></span></a><p></div>
+							<div class="button"><p><a href="" class="up" title="Monter"><span class="icon-up"></span></a></p></div>
+							<div class="button"><p><a href="" class="down" title="Descendre"><span class="icon-down"></span></a></p></div>
 						</section>
 					</article>
 					<article class="song">
@@ -86,10 +86,10 @@
 							<h3>Chanteur/groupe - année</h3>
 						</section>
 						<section class="commands">
-							<div class="button"><p><a href="" class="readBio">Lire la bio de l'artiste</a><p></div>
-							<div class="button"><p><a href="" class="listen">Écouter</a><p></div>
-							<div class="button"><p><a href="" class="up">↑</a></p></div>
-							<div class="button"><p><a href="" class="down">↓</a></p></div>
+							<div class="button"><p><a href="artiste.php" class="readBio" title="En savoir plus sur l'artiste"><span class="icon-info"></span></a><p></div>
+							<div class="button"><p><a href="" class="listen" title="Écouter"><span class="icon-play"></span></a><p></div>
+							<div class="button"><p><a href="" class="up" title="Monter"><span class="icon-up"></span></a></p></div>
+							<div class="button"><p><a href="" class="down" title="Descendre"><span class="icon-down"></span></a></p></div>
 						</section>
 					</article>
 				</section>

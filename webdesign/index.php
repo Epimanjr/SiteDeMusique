@@ -17,7 +17,7 @@
 			<p>
 			<form class="searchBar" action="index.php" method="post">
 				<input type="text" placeholder="Entrer un titre…" />
-				<input type="submit" value="Rechercher" />
+				<button type="submit" title="Rechercher la musique"><span class="icon-search"></span></button>
 			</form>
 			</p>
 		</header>
@@ -28,9 +28,9 @@
 					<h3>Chanteur/groupe - année</h3>
 				</section>
 				<section class="commands">
-					<div class="button"><p><a href="" class="readBio">Lire la bio de l'artiste</a><p></div>
-					<div class="button"><p><a href="" class="listen">Écouter</a><p></div>
-					<div class="button"><p><a href="" class="addToPlaylist">Ajouter à une playlist</a><p></div>
+					<div class="button"><p><a href="artiste.php" class="readBio" title="En savoir plus sur l'artiste"><span class="icon-info"></span></a><p></div>
+					<div class="button"><p><a href="" class="listen" title="Écouter"><span class="icon-play"></span></a><p></div>
+					<div class="button"><p><a href="" class="addToPlaylist" title="Ajouter à une playlist"><span class="icon-save"></span></a><p></div>
 				</section>
 			</article>
 			<article class="song">
@@ -39,9 +39,9 @@
 					<h3>Chanteur/groupe - année</h3>
 				</section>
 				<section class="commands">
-					<div class="button"><p><a href="" class="readBio">Lire la bio de l'artiste</a><p></div>
-					<div class="button"><p><a href="" class="listen">Écouter</a><p></div>
-					<div class="button"><p><a href="" class="addToPlaylist">Ajouter à une playlist</a><p></div>
+					<div class="button"><p><a href="artiste.php" class="readBio" title="En savoir plus sur l'artiste"><span class="icon-info"></span></a><p></div>
+					<div class="button"><p><a href="" class="listen" title="Écouter"><span class="icon-play"></span></a><p></div>
+					<div class="button"><p><a href="" class="addToPlaylist" title="Ajouter à une playlist"><span class="icon-save"></span></a><p></div>
 				</section>
 			</article>
 			<article class="song">
@@ -50,9 +50,9 @@
 					<h3>Chanteur/groupe - année</h3>
 				</section>
 				<section class="commands">
-					<div class="button"><p><a href="" class="readBio">Lire la bio de l'artiste</a><p></div>
-					<div class="button"><p><a href="" class="listen">Écouter</a><p></div>
-					<div class="button"><p><a href="" class="addToPlaylist">Ajouter à une playlist</a><p></div>
+					<div class="button"><p><a href="artiste.php" class="readBio" title="En savoir plus sur l'artiste"><span class="icon-info"></span></a><p></div>
+					<div class="button"><p><a href="" class="listen" title="Écouter"><span class="icon-play"></span></a><p></div>
+					<div class="button"><p><a href="" class="addToPlaylist" title="Ajouter à une playlist"><span class="icon-save"></span></a><p></div>
 				</section>
 			</article>
 		</section>

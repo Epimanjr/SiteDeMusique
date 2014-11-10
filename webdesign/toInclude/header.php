@@ -6,10 +6,10 @@
 			<section class="menu">
 				<nav>
 				<ul>
-					<li><a href="./">Accueil</a></li>
-					<li><a href="./playlists.php">Playlists</a></li>
-					<li><a href="#" id="loadRegistration">S'inscrire</a></li>
-					<li><a href="#" id="loadLogin">Se connecter</a></li>
+					<li><a href="./" title="Accueil"><span class="icon-home"></span></a></li>
+					<li><a href="./playlists.php" title="Playlists"><span class="icon-playlist"></span></a></li>
+					<li><a href="#" id="loadRegistration" title="S'inscrire"><span class="icon-createAccount"></span></a></li>
+					<li><a href="#" id="loadLogin" title="Se connecter"><span class="icon-online"></span></a></li>
 				</ul>
 				</nav>
 			</section>
