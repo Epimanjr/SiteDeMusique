@@ -70,7 +70,7 @@ class Artists {
         $c = Base::getConnection();
 
         /* Préparation de la requête */
-        $query = $c->prepare("INSERT INTO users (artist_id, name, image_url, info) VALUES ( :artist_id, :name, :image_url, :info )");
+        $query = $c->prepare("INSERT INTO artists (artist_id, name, image_url, info) VALUES ( :artist_id, :name, :image_url, :info )");
         $query->bindParam(':artist_id', $this->artist_id, PDO::PARAM_INT);
         $query->bindParam(':name', $this->name, PDO::PARAM_STR);
         $query->bindParam(':image_url', $this->image_url, PDO::PARAM_STR);
