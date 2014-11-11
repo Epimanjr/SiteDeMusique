@@ -255,8 +255,8 @@ div.button a.readBio{ border-color: darkgreen; background-color: darkgreen; }
 div.button a.readBio:hover{ background-color: limegreen; color: black; }
 
 /* Écouter */
-div.button a.listen{ border-color: crimson; background-color: crimson; }
-div.button a.listen:hover{ background-color: lightpink; color: black; }
+div.button a.listen{ border-color: #2055ac; background-color: #2055ac; }
+div.button a.listen:hover{ background-color: #5996ff; color: black; }
 
 /* Ajouter à une playlist */
 div.button a.addToPlaylist{ border-color: orangered; background-color: orangered; }
@@ -315,9 +315,9 @@ section#playlistContent+*:target{ display: block; }
 #modalRegistration,
 #modalLogin,
 #modalCreatePlaylist{
-	top: 50%;
+	top: 5em;
 	left: 50%;
-	margin:-15% 0 0 -25%; /* Correctif de position */
+	margin-left: -25%; /* Correctif de position */
 	padding: 0 2em;
 	width: 50%;
 	min-width: 320px;
@@ -340,20 +340,18 @@ section#playlistContent+*:target{ display: block; }
 #modalLogin label,
 #modalCreatePlaylist label{ margin-right: 1em;}
 
-#modalRegistration [class^="icon-"]:before,
-#modalRegistration [class*=" icon-"]:before,
-#modalRegistration [class^="icon-"]:after,
-#modalRegistration [class*=" icon-"]:after{margin-right: 0.5em;}
+#modalRegistration [class^="icon-"],
+#modalRegistration [class*=" icon-"]{margin-right: 0.5em;}
 
-#modalLogin [class^="icon-"]:before,
-#modalLogin [class*=" icon-"]:before,
-#modalLogin [class^="icon-"]:after,
-#modalLogin [class*=" icon-"]:after{margin-right: 0.5em;}
+#modalLogin [class^="icon-"],
+#modalLogin [class*=" icon-"]{margin-right: 0.5em;}
 
-#modalCreatePlaylist [class^="icon-"]:before,
-#modalCreatePlaylist [class*=" icon-"]:before,
-#modalCreatePlaylist [class^="icon-"]:after,
-#modalCreatePlaylist [class*=" icon-"]:after{margin-right: 0.5em;}
+#modalCreatePlaylist [class^="icon-"],
+#modalCreatePlaylist [class*=" icon-"]{margin-right: 0.5em;}
+
+#modalRegistration .icon-delete,
+#modalLogin .icon-delete,
+#modalCreatePlaylist .icon-delete{ margin-right: 0;}
 
 #modalRegistration input[type=text],
 #modalRegistration input[type=password],
