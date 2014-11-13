@@ -198,6 +198,6 @@ class Users {
      * Affichage d'un utilisateur.
      */
     function afficher() {
-        echo "Utilisateur " . $this->user_id . " : " . $this->username . ", email = " . $this->email . "<br/>\n";
+        echo "track " . $this->user_id . " : " . $this->username . ", email = " . $this->email . "<br/>\n";
     }
 }
