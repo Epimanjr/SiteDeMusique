@@ -16,7 +16,7 @@ class Track {
      * Id de  de track
      * @var type 
      */
-    private $track_title;
+    private $title;
 
     /**
      * titre du track
@@ -57,15 +57,15 @@ class Track {
 
 
         // preparation des requets
-        $query = $c->prepare("INSERT INTO track (user_id, track_id, track_title, mp3_url) VALUES (:user_id , :track_id, :track_title, :mp3_url )");
+        $query = $c->prepare("INSERT INTO track (artist_id, track_id, title, mp3_url) VALUES (:artist_id, :track_id, :title, :mp3_url )");
         $query->bindParam(':artiste_id', $this->user_id, PDO::PARAM_INT);
         $query->bindParam(':track_id', $this->track_id, PDO::PARAM_int);
-        $query->bindParam(':track_title', $this->track_title, PDO::PARAM_STR);
-        $query->bindParam(':mp3_url', $this->email, PDO::PARAM_STR);
+        $query->bindParam(':title', $this->title, PDO::PARAM_STR);
+        $query->bindParam(':mp3_url', $this->mp3_url, PDO::PARAM_STR);
 
         $query->execute();
 
-        $this->user_id = $c->lastInsertId();
+        $this->track_id = $c->lastInsertId();
     }
 
     public function update() {
@@ -78,9 +78,9 @@ class Track {
         $c = Base::getConnection();
 
         // préparation des requets
-        $query = $c->prepare("update track set track_id= ?, track_title= ?, mp3_url= ? where artist_id=?");
+        $query = $c->prepare("update track set artist_id= ?, title= ?, mp3_url= ? where track_id=?");
         $query->bindParam(1, $this->track_id, PDO::PARAM_int);
-        $query->bindParam(2, $this->track_title, PDO::PARAM_STR);
+        $query->bindParam(2, $this->title, PDO::PARAM_STR);
         $query->bindParam(3, $this->mp3_url, PDO::PARAM_STR);
         $query->bindParam(4, $this->artist_id, PDO::PARAM_INT);
         /* Exécution de la requête */
@@ -112,7 +112,7 @@ class Track {
      * Recherche d'un track avec son ID
      * 
      * @param type $id
-     * @return \Users
+     * @return \track
      */
      public static function findById($id) {
         /* Connexion à la base de données */
@@ -132,12 +132,18 @@ class Track {
         $track = new track();
          $artist->track= $d['artiste_id'];
         $track->track_id = $d['track_id'];
-        $artist->track_title = $d['track_title'];
+        $artist->title = $d['title'];
         $artist->mp3_url = $d['mp3_url'];
        
 
         return $track;
      }
+     
+     /**
+     * Permet de récupérer tous les tracks
+     * 
+     * @return \Users
+     */
      public static function findAll() {
         /* Création d'un tableau dans lequel on va stocker tous les utilisateurs */
         $res = array();
@@ -164,7 +170,9 @@ class Track {
 
         return $res;
     }
-
+   /**
+     * Affichage d'un utilisateur.
+     */
 
   function afficher() {
         echo "track" . $this->track_id. " : " . $this->artist_id . ", mp3_url= " . $this->mp3_url . "<br/>\n";
