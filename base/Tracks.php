@@ -140,10 +140,10 @@ class Tracks {
      }
      
      /**
-     * Permet de récupérer tous les tracks
-     * 
-     * @return \Users
-     */
+      * Permet de récupérer tous les tracks
+      * 
+      * @return \Tracks
+      */
      public static function findAll() {
         /* Création d'un tableau dans lequel on va stocker tous les utilisateurs */
         $res = array();
@@ -152,7 +152,7 @@ class Tracks {
         $c = Base::getConnection();
 
         /* Préparation de la requête */
-        $query = $c->prepare("select * from Tracks");
+        $query = $c->prepare("select * from tracks");
 
         /* Exécution de la requête */
         $query->execute();
@@ -161,10 +161,10 @@ class Tracks {
         while ($d = $query->fetch(PDO::FETCH_BOTH)) {
             /* Création d'un Objet */
             $track = new Tracks();
-            $artist->artist_id = $d['artist_id'];
-            $artist->track_id = $d['track_id'];
-            $artist->track_title = $d['track_title'];
-            $artist->mp3_url = $d['info'];
+            $track->artist_id = $d['artist_id'];
+            $track->track_id = $d['track_id'];
+            $track->title = $d['title'];
+            $track->mp3_url = $d['mp3_url'];
             $res[] = $track;
         }
 
