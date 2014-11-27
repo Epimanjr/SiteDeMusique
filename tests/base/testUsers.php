@@ -55,7 +55,7 @@ listerTout();
 include '../footer.html';
 
 function listerTout() {
-    $all = Users::findAll();
+    $all = Playlists::findAll();
     echo "<p>\n";
     foreach ($all as $user) {
         $user->afficher();

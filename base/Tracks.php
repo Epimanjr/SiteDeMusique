@@ -58,8 +58,8 @@ class Tracks {
 
         // preparation des requets
         $query = $c->prepare("INSERT INTO track (artist_id, track_id, title, mp3_url) VALUES (:artist_id, :track_id, :title, :mp3_url )");
-        $query->bindParam(':artiste_id', $this->user_id, PDO::PARAM_INT);
-        $query->bindParam(':track_id', $this->track_id, PDO::PARAM_int);
+        $query->bindParam(':artist_id', $this->artist_id, PDO::PARAM_INT);
+        $query->bindParam(':track_id', $this->track_id, PDO::PARAM_INT);
         $query->bindParam(':title', $this->title, PDO::PARAM_STR);
         $query->bindParam(':mp3_url', $this->mp3_url, PDO::PARAM_STR);
 
@@ -130,7 +130,7 @@ class Tracks {
 
         /* Création d'un Objet */
         $track = new track();
-         $artist->track= $d['artiste_id'];
+        $artist->track= $d['artist_id'];
         $track->track_id = $d['track_id'];
         $artist->title = $d['title'];
         $artist->mp3_url = $d['mp3_url'];

@@ -64,7 +64,7 @@ class Playlists  {
         $c = Base::getConnection();
 
         /* Préparation de la requête */
-        $query = $c->prepare("INSERT INTO Playlists (user_id,playlist_id, playlist_name) VALUES ( :user_id, :playlist_id, :playlist_name, )");
+        $query = $c->prepare("INSERT INTO Playlists (user_id, playlist_id, playlist_name) VALUES ( :user_id, :playlist_id, :playlist_name, )");
         $query->bindParam(':user_id', $this-> user_id, PDO::PARAM_INT);
         $query->bindParam(':playlist_id', $this->playlist_id, PDO::PARAM_INT);
         $query->bindParam(':playlist_name', $this->playlist_name, PDO::PARAM_STR);
@@ -92,7 +92,7 @@ class Playlists  {
         $c = Base::getConnection();
 
         /* Préparation de la requête */
-        $query = $c->prepare("update Playlists set playlist_name= ?,user_id= ?, info= ? where playlist_id=?");
+        $query = $c->prepare("update Playlists set playlist_name= ?,user_id= ? where playlist_id=?");
         $query->bindParam(1, $this->playlist_name, PDO::PARAM_STR);
         $query->bindParam(2, $this->user_id, PDO::PARAM_INT);
         $query->bindParam(3, $this->playlist_id, PDO::PARAM_INT);
@@ -148,9 +148,9 @@ class Playlists  {
         $playlist = new Playlists();
         $playlist->playlist_id = $d['playlist_id'];
         $playlist->user_id = $d['user_id'];
-        $playist->playlist_name = $d['playlist_name'];
+        $playlist->playlist_name = $d['playlist_name'];
        
-        return $playist;
+        return $playlist;
     }
 
     /**
