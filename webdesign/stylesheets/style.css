@@ -206,6 +206,13 @@ article.song{
 }
 article.song:hover{ border: 2px solid #2055ac; background: none; }
 
+/* Artiste */
+article.artist p:before,
+article.artist p:after{ content: ""; display: table; }
+article.artist p:after{ clear: both; }
+article.artist p img{ float: left; padding: 0 1em 1em 0; vertical-align: text-top; }
+
+
 /* Playlist */
 article.playlist{
 	width: 100%;
@@ -295,7 +302,8 @@ section#playlistContent+*:target{ display: block; }
 #modalBackground,
 #modalRegistration,
 #modalLogin,
-#modalCreatePlaylist{ display: none; z-index: 9999; position: fixed; }
+#modalCreatePlaylist,
+#modalInsertToPlaylist{ display: none; z-index: 9999; position: fixed; }
 
 #modalBackground{
 	top: 0;
@@ -314,7 +322,8 @@ section#playlistContent+*:target{ display: block; }
 
 #modalRegistration,
 #modalLogin,
-#modalCreatePlaylist{
+#modalCreatePlaylist,
+#modalInsertToPlaylist{
 	top: 5em;
 	left: 50%;
 	margin-left: -25%; /* Correctif de position */
@@ -327,7 +336,8 @@ section#playlistContent+*:target{ display: block; }
 }
 #modalRegistration h1,
 #modalLogin h1,
-#modalCreatePlaylist h1{
+#modalCreatePlaylist h1,
+#modalInsertToPlaylist h1{
 	font-family: 'Oswald', sans-serif;
 	font-weight: 300;
 	font-size: 2em;
@@ -338,31 +348,44 @@ section#playlistContent+*:target{ display: block; }
 
 #modalRegistration label,
 #modalLogin label,
-#modalCreatePlaylist label{ margin-right: 1em;}
+#modalCreatePlaylist label,
+#modalInsertToPlaylist label{
+	display:block;
+	float: left;
+	width: 150px;
+}
 
 #modalRegistration [class^="icon-"],
-#modalRegistration [class*=" icon-"]{margin-right: 0.5em;}
-
+#modalRegistration [class*=" icon-"],
 #modalLogin [class^="icon-"],
-#modalLogin [class*=" icon-"]{margin-right: 0.5em;}
-
+#modalLogin [class*=" icon-"],
 #modalCreatePlaylist [class^="icon-"],
-#modalCreatePlaylist [class*=" icon-"]{margin-right: 0.5em;}
+#modalCreatePlaylist [class*=" icon-"],
+#modalInsertToPlaylist [class^="icon-"],
+#modalInsertToPlaylist [class*=" icon-"]{margin-right: 0.5em;}
 
 #modalRegistration .icon-delete,
 #modalLogin .icon-delete,
-#modalCreatePlaylist .icon-delete{ margin-right: 0;}
+#modalCreatePlaylist .icon-delete,
+#modalInsertToPlaylist .icon-delete{ margin-right: 0;}
 
 #modalRegistration input[type=text],
 #modalRegistration input[type=password],
 #modalLogin input[type=text],
 #modalLogin input[type=password],
 #modalCreatePlaylist input[type=text],
-#modalCreatePlaylist input[type=password]{ margin-top: 0.3em; margin-bottom: 1em; }
+#modalCreatePlaylist input[type=password],
+#modalInsertToPlaylist input[type=text],
+#modalInsertToPlaylist input[type=password]{
+	float: left;
+	margin-top: 0.3em;
+	margin-bottom: 1em;
+}
 
 #modalRegistration input[type=submit],
 #modalLogin input[type=submit],
-#modalCreatePlaylist input[type=submit]{
+#modalCreatePlaylist input[type=submit],
+#modalInsertToPlaylist input[type=submit]{
 	margin-top: 2em;
 	background-color: #2055ac;
 	color: white;
@@ -370,12 +393,14 @@ section#playlistContent+*:target{ display: block; }
 }
 #modalRegistration input[type=submit]:hover,
 #modalLogin input[type=submit]:hover,
-#modalCreatePlaylist input[type=submit]:hover{ background-color: powderblue; color: black; }
+#modalCreatePlaylist input[type=submit]:hover,
+#modalInsertToPlaylist input[type=submit]:hover{ background-color: powderblue; color: black; }
 
 #modalBackground.active,
 #modalRegistration.active,
 #modalLogin.active,
-#modalCreatePlaylist.active{ display: block; }
+#modalCreatePlaylist.active,
+#modalInsertToPlaylist.active{ display: block; }
 
 
 /* Mise en forme du pied de page */

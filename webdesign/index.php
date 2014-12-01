@@ -1,3 +1,4 @@
+<?php include("./toInclude/base.php"); ?>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="fr"><![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="fr"><![endif]-->
@@ -16,45 +17,44 @@
 			<h1>Rechercher une musique</h1>
 			<p>
 			<form class="searchBar" action="index.php" method="post">
-				<input type="text" placeholder="Entrer un titre…" />
+				<input type="text" name="inputTitle" placeholder="Entrer un titre…" />
 				<button type="submit" title="Rechercher la musique"><span class="icon-search"></span></button>
 			</form>
 			</p>
 		</header>
 		<section class="wrapper">
-			<article class="song">
-				<section class="infos">
-					<h2>Titre de la chanson</h2>
-					<h3>Chanteur/groupe - année</h3>
-				</section>
-				<section class="commands">
-					<div class="button"><p><a href="artiste.php" class="readBio" title="En savoir plus sur l'artiste"><span class="icon-info"></span></a><p></div>
-					<div class="button"><p><a href="" class="listen" title="Écouter"><span class="icon-play"></span></a><p></div>
-					<div class="button"><p><a href="" class="addToPlaylist" title="Ajouter à une playlist"><span class="icon-save"></span></a><p></div>
-				</section>
-			</article>
-			<article class="song">
-				<section class="infos">
-					<h2>Titre de la chanson</h2>
-					<h3>Chanteur/groupe - année</h3>
-				</section>
-				<section class="commands">
-					<div class="button"><p><a href="artiste.php" class="readBio" title="En savoir plus sur l'artiste"><span class="icon-info"></span></a><p></div>
-					<div class="button"><p><a href="" class="listen" title="Écouter"><span class="icon-play"></span></a><p></div>
-					<div class="button"><p><a href="" class="addToPlaylist" title="Ajouter à une playlist"><span class="icon-save"></span></a><p></div>
-				</section>
-			</article>
-			<article class="song">
-				<section class="infos">
-					<h2>Titre de la chanson</h2>
-					<h3>Chanteur/groupe - année</h3>
-				</section>
-				<section class="commands">
-					<div class="button"><p><a href="artiste.php" class="readBio" title="En savoir plus sur l'artiste"><span class="icon-info"></span></a><p></div>
-					<div class="button"><p><a href="" class="listen" title="Écouter"><span class="icon-play"></span></a><p></div>
-					<div class="button"><p><a href="" class="addToPlaylist" title="Ajouter à une playlist"><span class="icon-save"></span></a><p></div>
-				</section>
-			</article>
+		<?php
+			try{
+				if(isset($_POST['inputTitle'])){
+					$input = $_POST['inputTitle'];
+					$request = $bdd->prepare('SELECT * FROM tracks WHERE title = "' . $_POST['inputTitle'] . '";');
+					$request->execute();
+					$track = $request->fetch(PDO::FETCH_ASSOC);
+					if(!isset($track["artist_id"])){	
+						echo 'Ce titre de musique n\'existe pas dans la base de données.';
+					} else {
+						$requestArtist = $bdd->prepare('SELECT * FROM artists WHERE artist_id = "' . $track["artist_id"] . '";');
+						$requestArtist->execute();
+						$artist = $requestArtist->fetch(PDO::FETCH_ASSOC);
+						echo '<article class="song">'
+							. '<section class="infos">'
+								. '<h2>' . $track["title"] . '</h2>'
+								. '<h3>' . $artist["name"] . '</h3>'
+								. '<audio controls><source src="' . $track["mp3_url"] . '" type="audio/mpeg"></audio>'
+							. '</section>'
+							. '<section class="commands">'
+								. '<div class="button"><p><a href="artiste.php?id=' . $track["artist_id"] . '" class="readBio" title="En savoir plus sur l\'artiste"><span class="icon-info"></span></a><p></div>'
+								. '<div class="button"><p><a href="#" id="loadInsertToPlaylist" class="addToPlaylist" title="Ajouter à une playlist"><span class="icon-save"></span></a><p></div>'
+							. '</section>'
+						. '</article>';
+						$requestArtist->closeCursor();
+					}
+					$request->closeCursor();
+				}
+			} catch(Exception $e) {
+				die('Erreur : ' . $e->getMessage());
+			}
+		?>
 		</section>
 	</article>
 	<?php include("./toInclude/modals.php");?>

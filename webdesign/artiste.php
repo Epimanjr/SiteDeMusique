@@ -1,10 +1,22 @@
+<?php include("./toInclude/base.php"); ?>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="fr"><![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="fr"><![endif]-->
 <!--[if IE 8 ]><html class="ie ie8" lang="fr"><![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="fr"><!--<![endif]-->
+<?php 
+	$title = '';
+	if(!isset($_GET['id'])){
+		$title = 'Inconnu';
+	} else {
+		$request = $bdd->prepare('SELECT * FROM artists WHERE artist_id = "' . $_GET['id'] . '";');
+		$request->execute();
+		$artist = $request->fetch(PDO::FETCH_ASSOC);
+		$title = $artist["name"];
+	}
+?>
 <head>
-	<title>Nom du site | Nom de l'artiste</title>
+	<title>Nom du site | <?php echo $title; ?></title>
 	<meta name="description" CONTENT="Description de la page." />
 	<?php include("./toInclude/head.php");?>
 </head>
@@ -12,43 +24,41 @@
 	<?php include("./toInclude/header.php");?>
 	<article class="artist">
 		<section class="wrapper">
-			<h1>Jimi Hendrix</h1>
-
-			<p>James Marshall Hendrix (né Johnny Allen Hendrix le 27 novembre 1942 à Seattle, aux États-Unis, et mort le 18 septembre 1970 à Londres, en Angleterre), mieux connu sous le nom de Jimi Hendrix, est un guitariste, auteur-compositeur et chanteur américain, fondateur du groupe anglo-américain The Jimi Hendrix Experience, actif de 1966 à 1970. Malgré une carrière internationale longue de seulement quatre ans, il est considéré comme le plus grand joueur de guitare électrique et un des musiciens les plus importants du xxe siècle.</p>
-
-			<p><img src="images/artistes/jimi.jpg" alt="Photo de l'artiste"/></p>
-
-			<h1>Discographie :</h1>
-			<article class="song">
-				<section class="infos">
-					<h2>Titre de la chanson</h2>
-					<h3>Album - année</h3>
-				</section>
-				<section class="commands">
-					<div class="button"><p><a href="" class="listen" title="Écouter"><span class="icon-play"></span></a><p></div>
-					<div class="button"><p><a href="" class="addToPlaylist" title="Ajouter à une playlist"><span class="icon-save"></span></a><p></div>
-				</section>
-			</article>
-			<article class="song">
-				<section class="infos">
-					<h2>Titre de la chanson</h2>
-					<h3>Album - année</h3>
-				</section>
-				<section class="commands">
-					<div class="button"><p><a href="" class="listen" title="Écouter"><span class="icon-play"></span></a><p></div>
-					<div class="button"><p><a href="" class="addToPlaylist" title="Ajouter à une playlist"><span class="icon-save"></span></a><p></div>
-				</section>
-			</article>
-			<article class="song">
-				<section class="infos">
-					<h2>Titre de la chanson</h2>
-					<h3>Album - année</h3>
-				</section>
-				<section class="commands">
-					<div class="button"><p><a href="" class="listen" title="Écouter"><span class="icon-play"></span></a><p></div>
-					<div class="button"><p><a href="" class="addToPlaylist" title="Ajouter à une playlist"><span class="icon-save"></span></a><p></div>
-				</section>
-			</article>
+		<?php
+			try{
+				if(!isset($_GET['id'])){
+					echo '<p>Erreur : cet artiste n\'a pas pu être identifié.</p>';
+				} else {
+					echo '<h1>' . $artist["name"] . '</h1>'
+						. '<p><img src="' . $artist["image_url"] . '" />' . $artist["info"] . '</p>'
+						. '<h1>Discographie :</h1>';
+					
+					$requestDiscography = $bdd->prepare('SELECT * FROM tracks WHERE artist_id = "' . $_GET['id'] . '";');
+					$requestDiscography->execute();
+					while($discography = $requestDiscography->fetch(PDO::FETCH_ASSOC)){
+						echo '<article class="song">'
+							. '<section class="infos">'
+								. '<h2>' . $discography["title"] . '</h2>'
+								. '<audio controls><source src="' . $discography["mp3_url"] . '" type="audio/mpeg"></audio>'
+							. '</section>'
+							. '<section class="commands">'
+							. '<div class="button"><p>';
+							if(!isset($_GET['pickedTrackID'])){
+								echo '<a href="?pickedTrackID=1" id="loadInsertToPlaylist" class="addToPlaylist" title="Ajouter à une playlist">';
+							} else {
+								echo '<a href="?pickedTrackID=' . $track["artist_id"] . '#" id="loadInsertToPlaylist" class="addToPlaylist" title="Ajouter à une playlist">';
+							}
+							echo '<span class="icon-save"></span></a><p></div>'
+							. '</section>'
+						. '</article>';
+					}
+					$request->closeCursor();
+					$requestDiscography->closeCursor();
+				}
+			} catch(Exception $e) {
+				die('Erreur : ' . $e->getMessage());
+			}
+		?>
 		</section>
 	</article>
 	<?php include("./toInclude/modals.php");?>

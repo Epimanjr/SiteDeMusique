@@ -11,4 +11,8 @@ $(document).ready(function(){
 	$("#loadCreatePlaylist").click(function(){
 		$("#modalBackground, #modalCreatePlaylist").toggleClass("active");
 	});
+	/* Ajouter à une playlist */
+	$("#loadInsertToPlaylist").click(function(){
+		$("#modalBackground, #modalInsertToPlaylist").toggleClass("active");
+	});
 });
