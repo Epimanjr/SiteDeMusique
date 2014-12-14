@@ -4,30 +4,30 @@ include 'Base.php';
 
 class Tracks {
 
-    private $artist_id;
-
     /**
-     * Id de l'utilisateur
+     * Id de l'artiste
      * @var type 
      */
-    private $track_id;
+    private $artist_id;
 
     /**
      * Id de  de track
      * @var type 
      */
-    private $title;
+    private $track_id;
 
     /**
      * titre du track
      * @var type 
      */
-    private $mp3_url;
+    private $title;
 
     /**
      * mp3 url
      * 
      */
+    private $mp3_url;
+    
     public function construct() {
         
     }
@@ -57,14 +57,15 @@ class Tracks {
 
 
         // preparation des requets
-        $query = $c->prepare("INSERT INTO track (artist_id, track_id, title, mp3_url) VALUES (:artist_id, :track_id, :title, :mp3_url )");
+        $query = $c->prepare("INSERT INTO tracks (artist_id, track_id, title, mp3_url) VALUES (:artist_id, :track_id, :title, :mp3_url )");
         $query->bindParam(':artist_id', $this->artist_id, PDO::PARAM_INT);
         $query->bindParam(':track_id', $this->track_id, PDO::PARAM_INT);
         $query->bindParam(':title', $this->title, PDO::PARAM_STR);
         $query->bindParam(':mp3_url', $this->mp3_url, PDO::PARAM_STR);
 
         $query->execute();
-
+        
+        echo $c->lastInsertId();
         $this->track_id = $c->lastInsertId();
     }
 
