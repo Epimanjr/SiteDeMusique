@@ -26,17 +26,17 @@ $tr->mp3_url = "URL";
 $tr->artist_id = 1; // Attention à la clé étrangère
 echo "<p>Insertion d'un morceau dans la base de donnees ... ";
 $tr->insert();
-echo "SUCCESS.<br/>Son ID : " . $tr->track_id . "</p>";
+echo " SUCCESS.<br/>Son ID : " . $tr->track_id . "</p>";
 
 /* Ensuite, on recherche le morceau par son ID */
-echo "\t<p><b>Test 3 : recherche d'un morceau par son id (ici " . $m->track_id . ")</b></p>\n";
-$m2 = Tracks::findById($m->track_id);
+echo "\t<p><b>Test 3 : recherche d'un morceau par son id (ici " . $tr->track_id . ")</b></p>\n";
+$m2 = Tracks::findById($tr->track_id);
 $m2->afficher();
 
 /* On fait une mise à jour  */
 echo "\t<p><b>Test 4 : Mise à jour !</b></p>Modification de l'URL...<br/>\n";
-$m->mp3_url = "Nouvelle URL !";
-$m->update();
+$tr->mp3_url = "Nouvelle URL !";
+$tr->update();
 listerTout();
 
 

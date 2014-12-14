@@ -27,22 +27,30 @@ class Tracks {
      * 
      */
     private $mp3_url;
-    
+
     public function construct() {
         
     }
 
-    public function __set($attr_name, $attr_val) {
-
+    /**
+     * GETTER MAGIQUE 
+     * 
+     * @param type $attr_name
+     * @return type
+     */
+    public function __get($attr_name) {
         if (property_exists(__CLASS__, $attr_name)) {
-            $this->$attr_name = $attr_val;
-
-
-            //$emess = __CLASS__ . ": unknown member $attr_name (setAttr)";
+            return $this->$attr_name;
         }
     }
 
-    public function _set($attr_name, $attr_val) {
+    /**
+     * SETTER MAGIQUE
+     * 
+     * @param type $attr_name
+     * @param type $attr_val
+     */
+    public function __set($attr_name, $attr_val) {
 
         if (property_exists(__CLASS__, $attr_name)) {
             $this->$attr_name = $attr_val;
@@ -57,14 +65,13 @@ class Tracks {
 
 
         // preparation des requets
-        $query = $c->prepare("INSERT INTO tracks (artist_id, track_id, title, mp3_url) VALUES (:artist_id, :track_id, :title, :mp3_url )");
+        $query = $c->prepare("INSERT INTO tracks (artist_id, title, mp3_url) VALUES (:artist_id, :title, :mp3_url )");
         $query->bindParam(':artist_id', $this->artist_id, PDO::PARAM_INT);
-        $query->bindParam(':track_id', $this->track_id, PDO::PARAM_INT);
         $query->bindParam(':title', $this->title, PDO::PARAM_STR);
         $query->bindParam(':mp3_url', $this->mp3_url, PDO::PARAM_STR);
 
         $query->execute();
-        
+
         echo $c->lastInsertId();
         $this->track_id = $c->lastInsertId();
     }
@@ -87,6 +94,7 @@ class Tracks {
         /* Exécution de la requête */
         return $query->execute();
     }
+
     /**
      * Suppression de track dans la base de données.
      * 
@@ -98,24 +106,25 @@ class Tracks {
         if (!isset($this->track_id)) {
             throw new Exception(__CLASS__ . ": Primary Key undefined : cannot delete");
         }
-        
-         /* Connexion à la base de données */
+
+        /* Connexion à la base de données */
         $c = Base::getConnection();
-        
-         /* Préparation de la requête */
+
+        /* Préparation de la requête */
         $query = $c->prepare("DELETE FROM Tracks where track_id=?");
         $query->bindParam(1, $this->track_id, PDO::PARAM_INT);
 
-           /* Exécution de la requête */
+        /* Exécution de la requête */
         return $query->execute();
     }
+
     /**
      * Recherche d'un track avec son ID
      * 
      * @param type $id
      * @return \track
      */
-     public static function findById($id) {
+    public static function findById($id) {
         /* Connexion à la base de données */
         $c = Base::getConnection();
 
@@ -130,22 +139,22 @@ class Tracks {
         $d = $query->fetch(PDO::FETCH_BOTH);
 
         /* Création d'un Objet */
-        $track = new track();
-        $artist->track= $d['artist_id'];
+        $track = new Tracks();
+        $track->artist_id = $d['artist_id'];
         $track->track_id = $d['track_id'];
-        $artist->title = $d['title'];
-        $artist->mp3_url = $d['mp3_url'];
-       
+        $track->title = $d['title'];
+        $track->mp3_url = $d['mp3_url'];
+
 
         return $track;
-     }
-     
-     /**
-      * Permet de récupérer tous les tracks
-      * 
-      * @return \Tracks
-      */
-     public static function findAll() {
+    }
+
+    /**
+     * Permet de récupérer tous les tracks
+     * 
+     * @return \Tracks
+     */
+    public static function findAll() {
         /* Création d'un tableau dans lequel on va stocker tous les utilisateurs */
         $res = array();
 
@@ -171,12 +180,12 @@ class Tracks {
 
         return $res;
     }
-   /**
+
+    /**
      * Affichage d'un utilisateur.
      */
-
-  function afficher() {
-        echo "track" . $this->track_id. " : " . $this->artist_id . ", mp3_url= " . $this->mp3_url . "<br/>\n";
+    function afficher() {
+        echo "track" . $this->track_id . " : " . $this->artist_id . ", mp3_url= " . $this->mp3_url . "<br/>\n";
     }
+
 }
-    
